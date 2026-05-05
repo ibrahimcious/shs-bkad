@@ -5,7 +5,16 @@ import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
   component: Home,
-  loader: () => getData()
+  loader: () => getData(),
+  head: () => ({
+    meta: [
+      { title: "List SHS | BKAD Pasuruan" },
+      { name: "description", content: "Daftar Standar Harga Satuan Pemerintah Kabupaten Pasuruan" },
+      { property: "og:title", content: "List SHS BKAD Pasuruan" },
+      { property: "og:description", content: "Aplikasi internal Sekretariat BKAD untuk monitoring Standar Harga Satuan." },
+      { property: "og:image", content: "/logo512.png" },
+    ],
+  }),
 })
 
 function Home() {

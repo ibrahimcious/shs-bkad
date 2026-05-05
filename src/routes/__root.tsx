@@ -15,7 +15,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'List SHS',
       },
     ],
     links: [
@@ -23,6 +23,8 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      { rel: 'icon', href: '/bkad.png', type: 'image/png' },
+      { rel: 'apple-touch-icon', href: '/bkad.png' },
     ],
   }),
   shellComponent: RootDocument,
