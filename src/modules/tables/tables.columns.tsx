@@ -11,7 +11,8 @@ export const columns: ColumnDef<Table>[] = [
   },
   {
     accessorKey: "SKPD",
-    header: "SKPD"
+    header: "SKPD",
+    enableHiding: true
   },
   {
     accessorKey: "Uraian",
@@ -41,11 +42,13 @@ export const columns: ColumnDef<Table>[] = [
   },
   {
     accessorKey: "Status",
-    header: "Status"
+    header: "Status",
+    enableHiding: true
   },
   {
     accessorKey: "Elemen",
-    header: "Elemen"
+    header: "Elemen",
+    enableHiding: true
   },
 
 ]

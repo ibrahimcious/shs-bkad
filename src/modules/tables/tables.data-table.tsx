@@ -4,6 +4,9 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "#
 import { flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable, type ColumnDef, type ColumnFiltersState, type SortingState } from "@tanstack/react-table"
 import { Search } from "lucide-react" // Pastikan install lucide-react
 import React from "react"
+import {
+  type VisibilityState
+} from "@tanstack/react-table"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -16,7 +19,11 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({
+    "SKPD": false,
+    "Status": false,
+    "Elemen": false
+  })
   const table = useReactTable({
     data,
     columns,
@@ -26,9 +33,11 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
     state: {
       sorting,
-      columnFilters
+      columnFilters,
+      columnVisibility
     }
   })
 
